@@ -150,7 +150,7 @@
 </div>
 </body>
 @include('admin.layout.errors')
-{{--@include('flash::message')--}}
+@include('flash::message')
 <script>
     require(['bootstrap'], function ($) {
         $('#flash-overlay-modal').modal();

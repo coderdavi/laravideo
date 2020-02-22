@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
+use Illuminate\Routing\Redirector;
 
 class EntryController extends Controller
 {
@@ -27,6 +29,15 @@ class EntryController extends Controller
        if ($status){
            return redirect('/admin/index');
        }
-       return redirect('/admin/login')->with('error','用户名或者密码错误');
+       session()->flash('error','用户名或者密码错误');
+       return back()->withInput();
+    }
+
+    /**退出
+     * @return RedirectResponse|Redirector
+     */
+    public function logout(){
+        Auth::guard('admin')->logout();
+        return redirect('/admin/login');
     }
 }

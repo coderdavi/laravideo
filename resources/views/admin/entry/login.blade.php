@@ -22,7 +22,7 @@
                     <label>帐号</label>
                     <div class="input-group">
                         <div class="input-group-addon"><i class="fa fa-w fa-user"></i></div>
-                        <input type="text" name="username" class="form-control input-lg"
+                        <input type="text" name="username" value="{!!old('username')!!}" class="form-control input-lg"
                                placeholder="请输入帐号" value="">
                     </div>
                 </div>
